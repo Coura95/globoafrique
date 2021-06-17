@@ -1,0 +1,36 @@
+
+<ion-header>
+  <ion-toolbar color="primary">
+
+    <ion-buttons slot="start">
+      <ion-button>
+        <ion-back-button></ion-back-button>
+      </ion-button>
+    </ion-buttons>
+    <ion-title style="text-align: center;">Selection</ion-title>
+    <ion-buttons (click)="dismissModal()" slot="end">
+    <ion-button> FERMER
+      <ion-icon name="close"></ion-icon>
+       </ion-button>
+      
+     
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="tertiary" class="ion-padding">
+  <ion-grid>
+  <ion-list >
+    <ion-item  button  *ngFor="let station of listeStation">
+     <ion-label>
+       <h2>{{station.libelle}}</h2>
+       
+     </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-grid>
+</ion-content>
+
+
+
+

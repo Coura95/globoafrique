@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar color="primary">
+
+    <ion-buttons slot="start">
+      <ion-button>
+        <ion-back-button></ion-back-button>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-buttons slot="start">
+      <ion-menu-button menu="main-menu"></ion-menu-button>
+    </ion-buttons>
+
+    <ion-buttons slot="end">
+      <ion-button routerLink="/login">Log in
+      </ion-button>
+    </ion-buttons>
+    
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="tertiary">
+ <h1>Créez votre<br />
+   compte</h1>
+  <form id="#form">
+
+    <ion-item lines="none">
+      <ion-label>
+    <ion-input placeholder="Nom"></ion-input>
+  </ion-label>
+  </ion-item>
+    <ion-item lines="none">
+      <ion-label>
+    <ion-input placeholder="Email"></ion-input>
+  </ion-label>
+  </ion-item>
+
+    <ion-item lines="none">
+      <ion-label>
+    <ion-input placeholder="Password"></ion-input>
+  </ion-label>
+  </ion-item>
+
+    <ion-button expand="block" shape="round" color= "secondary">
+      Inscription</ion-button>
+  </form>
+  <p>En appuyant sur <a>Nous joindre</a> vous acceptez <br /> nos termes et conditions.</p>
+</ion-content>

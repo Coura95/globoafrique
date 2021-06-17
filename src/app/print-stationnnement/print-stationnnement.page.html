@@ -1,0 +1,116 @@
+<ion-header>
+  <ion-toolbar color="primary">
+
+    <ion-buttons slot="start">
+      <ion-button>
+        <ion-back-button></ion-back-button>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>FICHE DE STATIONNEMENT</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="main-menu"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="tertiary" padding="true" style=" text-align: center;">
+
+  <ion-grid>
+    <div>
+      <div style=" margin-left: 10px; margin-right: 10%;">
+        <ion-card>
+          <div id="tab">
+
+            <div class="row" style="display: flex; margin-left: 5%; padding-top: 5%;">
+              <div class="col" style=" text-align: left;">
+
+                
+                <p style="text-align:left;">
+                  22,Rue Moussé DIOP DAKAR<br>
+                  RC: SN DKR 2018 C 20734<br>
+                  NINEA: 006948600<br>
+                  <b>{{dateFiltre}}</b>
+                </p>
+
+              </div>
+              <div class="col" style=" text-align: right; margin-left: 15%;">
+                    <img src="../assets/images/parkafrique.png" alt="">   
+              </div>
+
+
+             
+            </div>
+            <div class="col">
+              <h6><b>PARKAFRIQUE</b></h6>
+              N° 00{{id}}
+            </div>
+            <div style=" text-align: center;">----------------------------------------<br>
+            <h6>RECU DE PAIEMENT</h6>
+          </div>
+
+            <ion-card-content style="text-align: center;">
+
+              <div class="row" style=" text-align: left;">
+
+                <div class="col" style="text-align: center;">
+                  Matricule: {{matricule}}
+                </div>
+
+                <div class="col" style="text-align: center;">
+                  Arrive: {{heureDebutStr}}
+                </div>
+
+              </div>
+              <div class="row" style=" text-align: right;">
+
+                <div class="col" style="text-align: center;">
+                  Depart:{{heureFinStr}}
+                </div>
+              </div>
+
+
+            </ion-card-content>
+
+            <div class="row" style="text-align: center;">
+              <div class="col">
+                <h6>A PAYER: {{montant}} FCFA</h6>
+                <div>----------------------------------------</div>
+                <img style="width: 100%;"
+                src="data:image/png;base64,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">
+                <p>MERCI ET BONNE ROUTE !</p>
+
+              </div>
+            </div>
+
+            <!-- <table>
+            <tr>
+              <th>
+                <ion-icon name="car"></ion-icon>
+                <ion-icon name="car"></ion-icon>
+              </th>
+              <th>12: 45</th>
+              <th>Quantité</th>
+              <th>Prix</th>
+            </tr>
+            <tr>
+              <td>DK342R</td>
+              <td>14: 45</td>
+              <td>
+                <ion-icon name="car"></ion-icon>
+                <ion-icon name="car"></ion-icon>
+              </td>
+              <td>6 000</td>
+            </tr>
+
+          </table>-->
+          </div>
+        </ion-card>
+      </div>
+
+
+    </div>
+  </ion-grid>
+</ion-content>
+<div class="bar bar-footer footer-button" style=" text-align: center; background-color: #020b33;">
+  <ion-button (click)="testPrint()"><span style="color:white">Imprimer</span></ion-button>
+</div>

@@ -1,0 +1,98 @@
+<ion-header>
+  <ion-toolbar color="primary">
+
+    <ion-buttons slot="start">
+      <ion-button>
+        <ion-back-button></ion-back-button>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>FICHE D'IMMOBILISATION</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="main-menu"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="tertiary" padding="true" style=" text-align: center; ">
+
+  <ion-grid>
+    <div>
+      <div style=" margin-left: 8px; margin-right: 10%; ">
+        <ion-card>
+          <div id="tab">
+
+            <div class="row" style="display: flex; margin-left: 5%; padding-top: 5%;">
+              <div class="col" style=" text-align: left;">
+                <p style="text-align:left;">
+                  22,Rue Moussé DIOP DAKAR<br>
+                  RC: SN DKR 2018 C 20734<br>
+                  NINEA: 006948600<br>
+                  <b>{{dateFiltre}}</b>
+                </p>
+              </div>
+              <div class="col" style=" text-align: right;  margin-left: 15%;">
+                    <img src="../assets/images/parkafrique.png" alt="">
+              </div>
+            </div>
+            <div class="col">
+              <h6><b>PARKAFRIQUE</b></h6>
+              N° 00{{id}}
+            </div>
+            <div style=" text-align: center;">----------------------------------------<br>
+              <h6>RECUE DE PAIEMENT</h6>
+            </div>
+
+            <ion-card-content style="text-align: center;">
+              <div class="row" style="text-align: left;">
+               <!--  <div class="col" style="text-align: center;">Nom Agent:{{fullName}}</div>
+                <div class="col" style="text-align: center;">Telephone: {{phoneNumber}}</div> -->
+                <div class="col" style="text-align: center;">Infraction:{{stationnementName}}</div>
+                <div class="col" style="text-align: center;">Categorie: {{categorieVehiculeName}}</div>
+                <div class="col" style="text-align: center;">Matricule: {{matricule}}</div>
+                <div class="col" style="text-align: center;">Arrive: {{heureDebutStr}}</div>
+              <div class="col" style="text-align: center;">Depart:{{heureFinStr}}</div>
+            </div>
+
+            </ion-card-content>
+
+            <div class="row" style="text-align: center;">
+              <div class="col">
+                <h6>AMENDE: {{montant}} FCFA</h6>
+                <div>----------------------------------------</div>
+
+
+              </div>
+            </div>
+
+            <!-- <table>
+            <tr>
+              <th>
+                <ion-icon name="car"></ion-icon>
+                <ion-icon name="car"></ion-icon>
+              </th>
+              <th>12: 45</th>
+              <th>Quantité</th>
+              <th>Prix</th>
+            </tr>
+            <tr>
+              <td>DK342R</td>
+              <td>14: 45</td>
+              <td>
+                <ion-icon name="car"></ion-icon>
+                <ion-icon name="car"></ion-icon>
+              </td>
+              <td>6 000</td>
+            </tr>
+
+          </table>-->
+          </div>
+        </ion-card>
+      </div>
+
+
+    </div>
+  </ion-grid>
+</ion-content>
+<div class="bar bar-footer footer-button" style=" text-align: center; background-color: #020b33;">
+  <ion-button (click)="testPrint()"><span style="color:white">Imprimer</span></ion-button>
+</div>

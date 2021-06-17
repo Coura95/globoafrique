@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-button>
+        <ion-back-button></ion-back-button>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>job</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="main-menu"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding="true">
+
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content pullingIcon="chevron-down-circle-outline" pullingText="Pull to refresh"
+      refreshingSpinner="circles" refreshingText="Actualisation...">
+    </ion-refresher-content>
+  </ion-refresher>
+  <ion-content>
+   
+    <div class="row">
+
+      <div class="col" style="padding: 10px; text-align: right;">
+        <ion-item lines="none">
+          <ion-label>
+            <ion-input placeholder="Nom"></ion-input>
+          </ion-label>
+        </ion-item>
+      </div>
+
+      <div class="col" style="padding: 10px; text-align: right;">
+        <ion-item lines="none">
+          <ion-label>
+            <ion-input placeholder="Prenom"></ion-input>
+          </ion-label>
+        </ion-item>
+      </div>
+
+      <div class="col" style="padding: 10px; text-align: right;">
+        <ion-item lines="none">
+          <ion-label>
+            <ion-input placeholder="Adresse"></ion-input>
+          </ion-label>
+        </ion-item>
+      </div>
+     
+      <!-- <div class="col" style="padding: 10px; text-align: right;">
+        <ion-item>
+          <ion-label>Heure Debut</ion-label>
+          <ion-datetime displayFormat="HH:mm"></ion-datetime>
+        </ion-item>
+      </div> -->
+    </div>
+  </ion-content>
+  <div class="bar bar-footer footer-button" style=" text-align: center; ;">
+    <ion-button  type="submit" name="submit"><span style="color:white">Valider</span></ion-button>
+  </div>
+ 

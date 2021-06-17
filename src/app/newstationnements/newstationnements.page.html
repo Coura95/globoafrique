@@ -1,0 +1,183 @@
+<ion-header>
+  <ion-toolbar color="primary">
+
+    <ion-buttons slot="start">
+      <ion-button>
+        <ion-back-button></ion-back-button>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Stationnement Normal</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="main-menu"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="tertiary">
+  <br>
+  <div>
+
+
+
+
+
+    <div class="row" style="display: flex; ">
+
+      <div class="col" style="padding: 10px;text-align: left; width: 100%;">
+        <ion-item>
+          <ion-label *ngIf="!forms.zonesId">Zones</ion-label>
+          <ion-select [(ngModel)]="forms.zonesId" style="text-align: justify; max-width:800px">
+            <ion-select-option *ngFor="let item of listeZone" value="{{item.id}}"> {{ item.nom }}</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </div>
+      <div class="col" style="padding: 10px;text-align: right;width: 100%; ">
+        <ion-item>
+          <ion-label *ngIf="!forms.categorieVehiculeId">Vehicules</ion-label>
+          <ion-select [(ngModel)]="forms.categorieVehiculeId" style="text-align: justify; max-width:800px">
+            <ion-select-option *ngFor="let item of listeVehicule" value="{{item.id}}">{{ item.nom }}</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </div>
+
+      <!--  <div class="col" style="padding: 10px; text-align: left; ">
+        <ion-button style="width: 160px;"  [(ngModel)]="forms.zoness" name="zoness" ngDefaultControl (click)="presentModalZone()">
+          Choisir une zone
+        </ion-button>
+      </div>
+
+      <div class="col" style="padding: 10px;text-align: right; margin-left: 3px; ">
+        <ion-button style="width: 160px;" [(ngModel)]="forms.categorieVehiculeId" name="categorieVehiculeId" ngDefaultControl
+          (click)="presentModalVehicule(vehicule.nom)">
+          Choisir vehicule
+        </ion-button>
+        <p *ngIf="choix">{{choix}}</p>
+      </div> -->
+
+
+
+    </div>
+
+    <!--  <div class="row">
+      <div class="col" style="padding: 10px;text-align: right; ">
+        <ion-button style="width: 100%;" [(ngModel)]="voiturechoisit" name="voiturechoisit"
+         ngDefaultControl
+           options="listeVoiture"
+           modal-select=""
+           option-getter="getOptVoiture(option)"
+           modal-title="Selectinnez un vehicule"
+           has-search="true">
+           <label for="" *ngIf="!voiturechoisit">choisir une voiture</label>
+           <label for="" *ngIf="voiturechoisit">{{voiturechoisit.nom}}</label>
+           <div class="option">
+               <h2>{{option.nom}}</h2>
+           </div>
+         
+        </ion-button>
+       
+      </div>
+    </div>  -->
+
+    <div class="row">
+
+      <div class="col" style="padding: 10px; text-align: right;">
+        <ion-item lines="none">
+          <ion-label>
+            <ion-input placeholder="Matricule" [(ngModel)]="forms.matricule" name="matricule"></ion-input>
+          </ion-label>
+        </ion-item>
+      </div>
+
+    </div>
+
+    <div class="col" style="padding: 10px; text-align: right;">
+      <ion-item>
+        <ion-label>Heure Debut</ion-label>
+        <ion-datetime displayFormat="HH:mm" [(ngModel)]="forms.heureDebutStr" name="heureDebutStr"></ion-datetime>
+      </ion-item>
+    </div>
+
+
+    <div class="row" style="display: flex;">
+
+      <div class="col" style="padding: 10px; text-align: right; width: 100%;">
+        <ion-item lines="none">
+          <ion-label>
+            <ion-input placeholder="Parking" [(ngModel)]="forms.parking" name="parking"></ion-input>
+          </ion-label>
+        </ion-item>
+      </div>
+      <div class="col" style="padding: 10px; text-align: left;width: 100%;">
+        <ion-item lines="none">
+          <ion-label>
+            <ion-input placeholder="Duree" [(ngModel)]="forms.duree" name="duree"></ion-input>
+          </ion-label>
+        </ion-item>
+      </div>
+     
+    </div>
+    <div class="row" style="display: flex;">
+
+      <div class="col" style="padding: 10px; text-align: start; width: 100%;">
+        <ion-item lines="none">
+          <ion-label>
+            <ion-input placeholder="Montant" type="number" [(ngModel)]="forms.montant" name="montant"></ion-input>
+          </ion-label>
+        </ion-item>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col" style="padding: 10px; ">
+        <ion-button style="width: 100%; " (click)="loadMap()">
+          <ion-icon slot="start" name="locate"></ion-icon>
+          Position
+        </ion-button>
+      </div>
+
+    </div>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="3">
+          <b>Lattitude</b>
+        </ion-col>
+        <ion-col>
+          {{latitude}}
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="3">
+          <b>Longitude</b>
+        </ion-col>
+        <ion-col>
+          {{longitude}}
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="3">
+          <b>Addresse</b>
+        </ion-col>
+        <ion-col>
+          {{address}}
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+  </div>
+
+  <div class="map-wrapper">
+    <div id="map_center">
+      <!--  <img src="../assets/images/marker.png" />-->
+    </div>
+    <div #map id="map" data-tap-disabled="true"></div>
+  </div>
+
+
+  <!-- <div class="action-button">
+        <ion-button>
+          <ion-icon slot="start" name="add"></ion-icon>Add stationnement
+        </ion-button>
+      </div>-->
+</ion-content>
+<div class="bar bar-footer footer-button" style=" text-align: center; background-color: #020b33;">
+  <ion-button (click)="Addticket()" type="submit" name="submit"><span style="color:white">Valider</span></ion-button>
+</div>

@@ -1,0 +1,115 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-button>
+        <ion-back-button></ion-back-button>
+      </ion-button>
+    </ion-buttons>
+    <ion-title></ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="main-menu"></ion-menu-button>
+      <ion-searchbar showCancelButton="focus" [(ngModel)]="searchValue" (click)="recherche()"></ion-searchbar>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="tertiary" padding="true">
+
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="chevron-down-circle-outline"
+      pullingText="Pull to refresh"
+      refreshingSpinner="circles"
+      refreshingText="Actualisation...">
+    </ion-refresher-content>
+  </ion-refresher>
+
+   
+
+   <ion-list style="background-color:#020b33;" class="list" *ngFor="let Tickets of listeTickets">
+    <a class="item item-thumbnail-left">
+      <div class="row" style="height: 100%; margin-left: 60px; align-items: center; justify-content: center;">
+        <div class="col">
+          <ion-card>
+            <ion-card-header>
+              <ion-card-title style="color:black; text-align: center;">
+                STATIONNEMENT {{Tickets.id}}
+                <p>{{Tickets.dateFiltre}}</p>
+              </ion-card-title>
+              <ion-card-content>
+
+                <ion-item lines="none">
+                  <ion-label>Agent :</ion-label>
+                  <p>{{Tickets.fullName}}</p>
+                </ion-item>
+
+                <ion-item lines="none">
+                  <ion-label>Zone :</ion-label>
+                  <p>{{Tickets.zonesName}}</p>
+                </ion-item>
+
+                <ion-item lines="none">
+                  <ion-label>Parking :</ion-label>
+                  <p>{{Tickets.parking}}</p>
+                </ion-item>
+
+                <ion-item lines="none">
+                  <ion-label>Matricule :</ion-label>
+                  <p>{{Tickets.matricule}}</p>
+                </ion-item>
+
+                <ion-item lines="none">
+                  <i class="fas fa-car"></i>
+                  <ion-label>Arriveé :</ion-label>
+                  <p>{{Tickets.heureDebutStr}}</p>
+                </ion-item>
+                <ion-item lines="none">
+                  <i class="fas fa-car-side"></i>
+                  <ion-label>Durée:</ion-label>
+                  <p>{{Tickets.duree}} heures</p>
+                </ion-item>
+                <ion-item lines="none">
+                  <ion-label>Montant :</ion-label>
+                  <p>{{Tickets.montant}} FCFA</p>
+                </ion-item>
+
+              </ion-card-content>
+
+
+            </ion-card-header>
+          </ion-card>
+        </div>
+      </div>
+     <!--  routerLink="/print-stationnnement" -->
+      <div class="row"
+        style=" display: flex; height: 100%; margin-left: -25px; align-items: center; justify-content: center;">
+        <div class="col"
+          style="  text-align: left;background: linear-gradient(to right, #f7971e, #ffd200);height: 80%; width: 30%; margin-top: 0%; padding-top: 10px; margin-left: 20px;padding-left: 4%;">
+          <ion-buttons  slot="center">
+            <ion-button (click)="recu_stationnement(Tickets)" style="color:rgb(250, 248, 248);">
+              <b>Reçu</b>
+            </ion-button>
+          </ion-buttons>
+        </div>
+      </div>
+
+
+    </a>
+  </ion-list>
+
+
+</ion-content>
+<button class="button button-float bg" routerLink="/newstationnements" style="background-color:#020b33;">
+  <ion-icon style="color:#f7971e; background-color:#020b33;  height: 65px; width: 55px; float:right" name="add-circle">
+  </ion-icon>
+</button>
+
+
+<!--<div style="background-color: #020b33;">
+<ion-footer >
+  <ion-toolbar >
+    <a href="http://copyright.be" target="_blank" style="text-align: center;">Copyright © - Tous droits réservés</a>
+   <ion-title>Copyright © - Tous droits réservés, Lost&Found</ion-title>
+  </ion-toolbar>
+</ion-footer>
+</div>-->
