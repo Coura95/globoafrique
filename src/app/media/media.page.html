@@ -1,9 +1,34 @@
+
 <ion-header>
-  <ion-toolbar>
-    <ion-title>media</ion-title>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-button >
+        <ion-back-button></ion-back-button>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>job</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="main-menu"></ion-menu-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
+<ion-content  padding="true">
 
-<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="chevron-down-circle-outline"
+      pullingText="Pull to refresh"
+      refreshingSpinner="circles"
+      refreshingText="Actualisation...">
+    </ion-refresher-content>
+  </ion-refresher>
 
+  
 </ion-content>
+<div class="bar bar-footer footer-button" style=" text-align: center; ;">
+  <ion-button  routerLink="/file" type="submit" name="submit"><span style="color:white">Upload</span></ion-button>
+</div>
+<div class="bar bar-footer footer-button" style=" text-align: center; ;">
+  <ion-button routerLink="/qrcode"  type="submit" name="submit"><span style="color:white">QRcode</span></ion-button>
+</div>
+

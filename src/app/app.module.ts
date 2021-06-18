@@ -22,6 +22,7 @@ import { Printer, PrintOptions } from '@ionic-native/printer/ngx';
 import { HttpClientModule } from '@angular/common/http';
 import { IonicStorageModule } from '@ionic/storage';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { QRScanner } from '@ionic-native/qr-scanner/ngx';
 
 
 
@@ -62,6 +63,7 @@ export const firebaseConfig = {
     StatusBar,
     SplashScreen,
    Camera,
+   QRScanner,
    Geolocation,
    NativeGeocoder,
    Printer,

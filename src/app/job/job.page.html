@@ -22,18 +22,18 @@
       refreshingText="Actualisation...">
     </ion-refresher-content>
   </ion-refresher>
-  <ion-list style="background-color:#020b33;" class="list" *ngFor="let job of liste">
+  <ion-list  class="list" >
     <a class="item item-thumbnail-left">
-      <div class="row" style="height: 100%; margin-left: 60px; align-items: center; justify-content: center;">
+      <div class="row" style="height: 100%; margin-left: 10px; align-items: center; justify-content: center;">
         <div class="col">
           <ion-card>
             <ion-card-header>
-              <ion-card-title style="color:black; text-align: center;">
+              <ion-card-title style="color:black;  padding-left: 10%; padding-right: 10%;">
                 list jobs
               </ion-card-title>
               <ion-card-content>
 
-                <ion-item lines="none">
+                <ion-item lines="none" routerLink="/media">
                   <ion-label>Job :</ion-label>
                   <p>{{job}}</p>
                 </ion-item>

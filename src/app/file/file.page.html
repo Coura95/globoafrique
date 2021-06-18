@@ -6,7 +6,7 @@
         <ion-back-button></ion-back-button>
       </ion-button>
     </ion-buttons>
-    <ion-title>job</ion-title>
+    <ion-title>File</ion-title>
     <ion-buttons slot="start">
       <ion-menu-button menu="main-menu"></ion-menu-button>
     </ion-buttons>
@@ -22,30 +22,10 @@
       refreshingText="Actualisation...">
     </ion-refresher-content>
   </ion-refresher>
-  <ion-list style="background-color:#020b33;" class="list" *ngFor="let job of liste">
-    <a class="item item-thumbnail-left">
-      <div class="row" style="height: 100%; margin-left: 60px; align-items: center; justify-content: center;">
-        <div class="col">
-          <ion-card>
-            <ion-card-header>
-              <ion-card-title style="color:black; text-align: center;">
-                list jobs
-              </ion-card-title>
-              <ion-card-content>
-
-                <ion-item lines="none">
-                  <ion-label>Job :</ion-label>
-                  <p>{{job}}</p>
-                </ion-item>
-              </ion-card-content>
-            </ion-card-header>
-          </ion-card>
-        </div>
-      </div>
-     
-  
-    </a>
-  </ion-list>
+  <div  class="ion-padding">
+    <input type="file"  (change)="selectedFile($event)">
+    <ion-button  (click)="onClick()" type="submit" name="submit"><span style="color:white">Send file</span></ion-button>
+  </div>
   
 </ion-content>
 
